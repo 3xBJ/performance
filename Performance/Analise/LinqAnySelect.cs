@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Performance.Analise
 {
-    internal class Lista
+    //Usando Any Contains e usando Select
+    internal class LinqAnySelect
     {
-        //casso de lista inicializada com numero e sem inicializacao
     }
 }
