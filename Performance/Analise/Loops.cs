@@ -17,10 +17,7 @@ namespace Performance.Analise
         [GlobalSetup]
         public void Setup()
         {
-            for(int i =0; i < NumeroIteracoes; i++)
-            {
-                lista.Add(i);
-            }
+            lista.AddRange(Enumerable.Range(0, NumeroIteracoes));
         }
 
         [Benchmark]
