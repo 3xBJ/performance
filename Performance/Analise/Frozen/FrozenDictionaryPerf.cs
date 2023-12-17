@@ -1,7 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 using System.Collections.Frozen;
-using static Performance.Analise.Constantes;
 
 namespace Performance.Analise.Frozen;
 
@@ -10,10 +9,10 @@ namespace Performance.Analise.Frozen;
 [RPlotExporter]
 public class FrozenDictionaryPerf
 {
-    public Dictionary<int, bool> _dictionary;
-    public FrozenDictionary<int, bool> _frozenDictionary;
+    private Dictionary<int, bool> _dictionary;
+    private FrozenDictionary<int, bool> _frozenDictionary;
 
-    [Params(DEZ_MIL, CEM_MIL, UM_MILHAO)]
+    [Params(TEN_THOUSAND, HUNDRED_THOUSAND, ONE_MILLION)]
     public int ElementsNumber { get; set; }
 
     [IterationSetup]

@@ -1,7 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-using BenchmarkDotNet.Running;
-using Performance.Analise;
+﻿using BenchmarkDotNet.Running;
 using Performance.Analise.Frozen;
+using Performance.Analise.Lists;
+using Performance.Analise.Loops;
+using Performance.Analise.Search;
+using Performance.Analise.Strings;
 
 Console.WriteLine("Escolha qual teste rodar");
 Console.WriteLine("1 - Busca Ordenada");
@@ -20,12 +22,12 @@ _ = int.TryParse(a, out numeroTeste);
 
 _ = numeroTeste switch
 {
-    1 => BenchmarkRunner.Run<BuscaOrdenada>(),
-    2 => BenchmarkRunner.Run<BuscaNaoOrdenada>(),
-    3 => BenchmarkRunner.Run<Concatenacao>(),
-    4 => BenchmarkRunner.Run<Loops>(),
+    1 => BenchmarkRunner.Run<OrderedSearch>(),
+    2 => BenchmarkRunner.Run<NonOrderedSearch>(),
+    3 => BenchmarkRunner.Run<Concatenation>(),
+    4 => BenchmarkRunner.Run<ForForeachPerf>(),
     5 => BenchmarkRunner.Run<YieldOuReturn>(),
-    6 => BenchmarkRunner.Run<YieldOuReturnMaterializado>(),
+    6 => BenchmarkRunner.Run<YieldOrReturnMaterialized>(),
     7 => BenchmarkRunner.Run<FrozenDictionaryPerf>(),
     8 => BenchmarkRunner.Run<FrozenSetPerf>(),
     _ => null
